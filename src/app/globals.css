@@ -1,0 +1,100 @@
+@import "lenis/dist/lenis.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -------------------------------------------------------------------------- */
+/*  Base                                                                       */
+/* -------------------------------------------------------------------------- */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 5.5rem; /* compensa a navbar fixa em âncoras nativas */
+  }
+
+  body {
+    @apply bg-white font-sans text-slate-600 antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-navy-900;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    @apply bg-brand-600 text-white;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-4 outline-brand-600;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Componentes utilitários                                                    */
+/* -------------------------------------------------------------------------- */
+@layer components {
+  /* Glassmorphism com fallback sólido para navegadores sem backdrop-filter */
+  .glass {
+    @apply border border-white/70 bg-white/90 shadow-glass;
+  }
+  @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+    .glass {
+      @apply bg-white/60 backdrop-blur-xl;
+      -webkit-backdrop-filter: blur(24px) saturate(160%);
+      backdrop-filter: blur(24px) saturate(160%);
+    }
+  }
+
+  /* Textura sutil de "placa de circuito": grade de pontos ciano */
+  .bg-dots {
+    background-image: radial-gradient(rgb(18 181 214 / 0.28) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-brand-600;
+  }
+
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Acordeão: transição de altura via grid (0fr → 1fr), sem JS de medição       */
+/* -------------------------------------------------------------------------- */
+.accordion-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.accordion-panel[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+.accordion-panel > div {
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Movimento reduzido                                                         */
+/* -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
