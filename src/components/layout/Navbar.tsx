@@ -61,7 +61,7 @@ export function Navbar() {
               href="#autoexame"
               className="rounded-full bg-navy-900 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-600"
             >
-              Guia de autoexame
+              Guia de Autoexame
             </a>
           </li>
         </ul>
@@ -96,6 +96,15 @@ export function Navbar() {
               </a>
             </li>
           ))}
+          <li className="mt-2">
+            <a
+              href="#autoexame"
+              onClick={() => setOpen(false)}
+              className="block rounded-2xl bg-navy-900 px-4 py-3.5 text-center text-base font-semibold text-white transition-colors hover:bg-brand-600"
+            >
+              Guia de Autoexame
+            </a>
+          </li>
         </ul>
       </div>
     </header>

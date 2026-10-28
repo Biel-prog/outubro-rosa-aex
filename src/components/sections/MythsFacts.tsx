@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Minus, Plus } from "lucide-react";
+import { CheckCircle2, Minus, Plus, XCircle } from "lucide-react";
 import { MYTHS } from "@/data/content";
 import { Reveal } from "@/components/animation/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -20,10 +20,10 @@ export function MythsFacts() {
       <div className="container-page grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
         <div className="lg:sticky lg:top-32 lg:self-start">
           <SectionHeading
-            eyebrow="Mitos e verdades"
+            eyebrow="Informação que protege"
             title={
               <>
-                Informação <span className="text-brand-600">de verdade</span> protege.
+                Mitos e <span className="text-brand-600">Verdades</span>
               </>
             }
             description="Desconfie do que circula nas redes. Toque em cada mito para ver o que a ciência diz."
@@ -50,10 +50,11 @@ export function MythsFacts() {
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <span className="flex-1">
-                      <span className="block text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-brand-600">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-red-50 px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-red-600 ring-1 ring-inset ring-red-200">
+                        <XCircle aria-hidden strokeWidth={2} className="size-3.5" />
                         Mito
                       </span>
-                      <span className="mt-1.5 block font-display text-xl font-semibold leading-snug tracking-tight text-navy-900 sm:text-2xl">
+                      <span className="mt-3 block font-display text-xl font-semibold leading-snug tracking-tight text-navy-900 sm:text-2xl">
                         {item.myth}
                       </span>
                     </span>
@@ -85,10 +86,13 @@ export function MythsFacts() {
                         open ? "opacity-100 delay-150" : "opacity-0",
                       )}
                     >
-                      <span aria-hidden className="mt-1 h-auto w-1 shrink-0 rounded-full bg-circuit-400" />
+                      <span aria-hidden className="mt-1 h-auto w-1 shrink-0 rounded-full bg-emerald-500" />
                       <div>
-                        <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-circuit-500">Fato</p>
-                        <p className="mt-1.5 text-base leading-relaxed text-slate-700 sm:text-lg">{item.fact}</p>
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-emerald-700 ring-1 ring-inset ring-emerald-200">
+                          <CheckCircle2 aria-hidden strokeWidth={2} className="size-3.5" />
+                          Verdade
+                        </span>
+                        <p className="mt-3 text-base leading-relaxed text-slate-700 sm:text-lg">{item.fact}</p>
                       </div>
                     </div>
                   </div>

@@ -1,48 +1,24 @@
-import { GraduationCap, HeartHandshake } from "lucide-react";
-
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-slate-900 text-slate-300">
-      <div aria-hidden className="pointer-events-none absolute -left-24 -top-24 size-96 rounded-full bg-brand-600/20 blur-3xl" />
-      <div aria-hidden className="bg-dots pointer-events-none absolute inset-0 opacity-20 [mask-image:linear-gradient(to_bottom,black,transparent_70%)]" />
+    <footer className="relative overflow-hidden bg-stone-950 text-white">
+      <div aria-hidden className="pointer-events-none absolute left-1/2 top-0 size-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-600/20 blur-3xl" />
 
-      <div className="container-page relative py-16 sm:py-20">
-        <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
-          <div className="max-w-xl">
-            <div className="flex items-center gap-3">
-              <span className="grid size-11 place-items-center rounded-2xl bg-white/10 text-white ring-1 ring-white/15">
-                <GraduationCap aria-hidden strokeWidth={1.5} className="size-6" />
-              </span>
-              <p className="font-display text-lg font-semibold tracking-tight text-white">
-                Outubro Rosa <span className="text-brand-400">+</span> Tecnologia
-              </p>
-            </div>
+      <div className="container-page relative flex flex-col items-center py-16 text-center">
+        <svg
+          viewBox="0 0 200 70"
+          className="mb-6 h-auto w-32 fill-current text-rose-600"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="Logo da Universidade de Mogi das Cruzes (UMC)"
+        >
+          <text x="100" y="45" fontFamily="Arial Black, Impact, sans-serif" fontSize="56" fontWeight="900" textAnchor="middle" letterSpacing="-2">UMC</text>
+          <text x="100" y="65" fontFamily="Georgia, serif" fontSize="14" textAnchor="middle" letterSpacing="3">UNIVERSIDADE</text>
+        </svg>
 
-            <p className="mt-6 font-display text-xl font-medium leading-snug text-white sm:text-2xl">
-              Projeto de Extensão Universitária • Atividade Extensionista (80 Horas).
-            </p>
-          </div>
+        <h3 className="text-lg font-semibold text-rose-100">Projeto de Extensão Universitária - Outubro Rosa + Tecnologia</h3>
+        <p className="mb-6 text-rose-300">Análise e Desenvolvimento de Sistemas</p>
 
-          <p className="max-w-md text-sm leading-relaxed text-slate-300 md:text-right">
-            Desenvolvido por <strong className="font-semibold text-white">Gabriel Rodrigues da Silva Soares</strong>
-            <span aria-hidden className="mx-2 text-slate-600 md:hidden">|</span>
-            <br className="hidden md:block" />
-            Curso: Análise e Desenvolvimento de Sistemas
-            <span aria-hidden className="mx-2 text-slate-600 md:hidden">|</span>
-            <br className="hidden md:block" />
-            Universidade de Mogi das Cruzes (UMC).
-          </p>
-        </div>
-
-        <div className="mt-14 flex flex-col items-start gap-3 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="flex items-center gap-2.5 font-display text-sm font-semibold text-white">
-            <HeartHandshake aria-hidden strokeWidth={1.5} className="size-5 text-brand-400" />
-            Tecnologia que salva vidas.
-          </p>
-          <p className="text-xs leading-relaxed text-slate-400 sm:text-right">
-            Projeto com fins exclusivamente acadêmicos e informativos.
-          </p>
-        </div>
+        <p className="text-sm text-rose-400/80">Desenvolvimento Web: Gabriel Rodrigues</p>
       </div>
     </footer>
   );
